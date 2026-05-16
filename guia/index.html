@@ -64,7 +64,20 @@
     .link-box-sub { font-size: 12px; color: var(--dim); margin-top: 2px; }
     .link-box-arrow { color: var(--green); }
 
+    /* Feature cards */
+    .features { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 16px; }
+    @media (max-width: 520px) { .features { grid-template-columns: 1fr; } }
+    .feat { background: var(--surface2); border: 1px solid var(--border); border-radius: 12px; padding: 16px; }
+    .feat-icon { font-size: 22px; margin-bottom: 8px; }
+    .feat-title { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+    .feat-desc { font-size: 12px; color: var(--dim); line-height: 1.5; }
+
+    /* md template */
+    .md-template { background: #060606; border: 1px solid #1e1e1e; border-left: 3px solid var(--green); border-radius: 10px; padding: 14px 16px; font-family: 'SF Mono', Menlo, monospace; font-size: 12px; color: #aaa; line-height: 1.7; margin: 12px 0; white-space: pre; overflow-x: auto; }
+    .md-template .hl { color: var(--green); }
+
     .divider { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+    .section-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--dim); margin-bottom: 20px; }
     footer { text-align: center; font-size: 12px; color: var(--dim); margin-top: 16px; }
     footer a { color: var(--green); text-decoration: none; }
   </style>
@@ -75,18 +88,20 @@
   <div class="logo">⚡</div>
   <div>
     <h1>Agente de Comunicação LigueLead</h1>
-    <p>Guia de instalação — Claude + SMS + Voz + SMS Flash</p>
+    <p>Claude + SMS + Voz + SMS Flash · n8n · Make · Webhooks</p>
   </div>
 </header>
 
 <main>
   <div class="intro">
     <h2>Configure em 4 passos</h2>
-    <p>Transforma o Claude em um executor de comunicação.<br>Passa a estratégia ou lista de contatos — ele executa via LigueLead na hora.</p>
+    <p>Transforma o Claude em um executor de comunicação.<br>Passa a estratégia ou arquivo — ele executa, automatiza e retorna status.</p>
     <div class="channels">
       <span class="chip">💬 SMS</span>
       <span class="chip">📞 Voz automatizada</span>
       <span class="chip">⚡ SMS Flash</span>
+      <span class="chip">⚙️ n8n / Make</span>
+      <span class="chip">🔔 Webhook de status</span>
     </div>
   </div>
 
@@ -163,16 +178,125 @@
       <div class="step-num">4</div>
       <div>
         <div class="step-title">Passe a estratégia e execute</div>
-        <div class="step-sub">O agente resume, confirma e envia na hora</div>
+        <div class="step-sub">O agente resume, confirma e envia — ou monta o fluxo visual</div>
       </div>
     </div>
     <div class="step-body">
-      <p>Descreva quem contatar, o que enviar e quando — ou cole uma régua pronta:</p>
-      <div class="code-block">"Liga para esses números cobrando a fatura: 11999... 11888..."
+      <p>Você pode passar a comunicação de 3 formas:</p>
 
-"Régua de retenção: D+0 SMS boas-vindas, D+3 oferta, D+7 ligação"
+      <div class="features">
+        <div class="feat">
+          <div class="feat-icon">💬</div>
+          <div class="feat-title">Instrução direta</div>
+          <div class="feat-desc">"Liga para esses números cobrando a fatura: 11999..."</div>
+        </div>
+        <div class="feat">
+          <div class="feat-icon">📋</div>
+          <div class="feat-title">Régua descritiva</div>
+          <div class="feat-desc">"D+0 SMS boas-vindas, D+3 oferta, D+7 ligação"</div>
+        </div>
+        <div class="feat">
+          <div class="feat-icon">📄</div>
+          <div class="feat-title">Arquivo .md</div>
+          <div class="feat-desc">Cole o caminho de um arquivo com etapas e lista de leads</div>
+        </div>
+        <div class="feat">
+          <div class="feat-icon">⚙️</div>
+          <div class="feat-title">Fluxo visual</div>
+          <div class="feat-desc">"Cria esse fluxo no n8n" ou "monta no Make"</div>
+        </div>
+      </div>
 
-"Manda SMS Flash para esses 50 clientes inadimplentes: [lista]"</div>
+      <p style="margin-top:20px;">O agente faz um resumo → você confirma → ele executa via LigueLead e/ou cria o workflow.</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- FORMATOS ACEITOS -->
+  <p class="section-label">Formatos de entrada</p>
+
+  <div class="step">
+    <div class="step-header">
+      <div class="step-num" style="background:#1e1e1e;color:var(--green);font-size:18px;">📄</div>
+      <div>
+        <div class="step-title">Arquivo .md com lógica + leads</div>
+        <div class="step-sub">Crie uma vez, reutilize sempre — o agente lê e executa</div>
+      </div>
+    </div>
+    <div class="step-body">
+      <p>Crie um arquivo <code>.md</code> com as etapas da régua e a lista de contatos. O agente lê o arquivo, extrai tudo e confirma antes de enviar.</p>
+      <div class="md-template"><span class="hl"># Régua de Retenção</span>
+
+<span class="hl">## Etapas</span>
+
+| Etapa | Timing | Canal    | Mensagem                        |
+|-------|--------|----------|---------------------------------|
+| 1     | D+0    | SMS      | "Olá {nome}, sentimos sua falta!"|
+| 2     | D+3    | Voz      | audio_id: abc123                |
+| 3     | D+7    | Flash    | "⚠️ Oferta exclusiva expira hoje"|
+
+<span class="hl">## Leads</span>
+
+| Nome        | Telefone        | Variáveis          |
+|-------------|-----------------|-------------------|
+| João Silva  | +5511999990001  | vencimento=10/06  |
+| Maria Souza | +5511999990002  | vencimento=12/06  |</div>
+      <div class="note">ℹ️ Diga ao agente: <em>"Executa o arquivo regua-retencao.md"</em> — ele lê, resume e aguarda confirmação.</div>
+    </div>
+  </div>
+
+  <!-- FLUXO VISUAL -->
+  <div class="step">
+    <div class="step-header">
+      <div class="step-num" style="background:#1e1e1e;color:var(--green);font-size:18px;">⚙️</div>
+      <div>
+        <div class="step-title">Fluxo visual no n8n ou Make</div>
+        <div class="step-sub">O agente monta e importa o workflow automaticamente</div>
+      </div>
+    </div>
+    <div class="step-body">
+      <p>Peça ao agente para criar o fluxo na plataforma que você já usa. Ele vai pedir a URL + API key e montar tudo:</p>
+      <div class="features" style="margin-top:0;">
+        <div class="feat">
+          <div class="feat-icon">🔄</div>
+          <div class="feat-title">n8n</div>
+          <div class="feat-desc">Cria workflow com trigger → nós de envio → condicional de canal → wait entre etapas. Importa via API.</div>
+        </div>
+        <div class="feat">
+          <div class="feat-icon">🔧</div>
+          <div class="feat-title">Make</div>
+          <div class="feat-desc">Monta cenário com módulos HTTP → Router de canal → Sleep. Importa direto na sua organização.</div>
+        </div>
+      </div>
+      <div class="note" style="margin-top:16px;">ℹ️ Diga: <em>"Cria esse fluxo no n8n"</em> — o agente pergunta a URL e o token, monta e importa.</div>
+    </div>
+  </div>
+
+  <!-- WEBHOOK -->
+  <div class="step">
+    <div class="step-header">
+      <div class="step-num" style="background:#1e1e1e;color:var(--green);font-size:18px;">🔔</div>
+      <div>
+        <div class="step-title">Webhook de retorno de status</div>
+        <div class="step-sub">Receba notificação quando SMS for entregue ou ligação atendida</div>
+      </div>
+    </div>
+    <div class="step-body">
+      <p>Configure uma URL para receber o status de cada envio em tempo real:</p>
+      <div class="features" style="margin-top:0;">
+        <div class="feat">
+          <div class="feat-icon">✅</div>
+          <div class="feat-title">SMS entregue / falhou</div>
+          <div class="feat-desc">Notificação imediata de entrega ou falha de cada mensagem.</div>
+        </div>
+        <div class="feat">
+          <div class="feat-icon">📞</div>
+          <div class="feat-title">Ligação atendida / não atendida</div>
+          <div class="feat-desc">Sabe em tempo real quem atendeu e quem ignorou a chamada.</div>
+        </div>
+      </div>
+      <div class="note" style="margin-top:16px;">ℹ️ Diga: <em>"Configura webhook de status para https://meu-site.com/callback"</em> — o agente registra e, se você tiver fluxo no n8n/Make, já adiciona o nó receptor.</div>
     </div>
   </div>
 
@@ -186,7 +310,7 @@
     <div class="step-body">
       <a class="link-box" href="https://github.com/liguelead/agente-comunicacao" target="_blank">
         <span class="link-box-icon">🐙</span>
-        <div class="link-box-text">github.com/liguelead/agente-comunicacao<div class="link-box-sub">CLAUDE.md · README · Exemplos de réguas</div></div>
+        <div class="link-box-text">github.com/liguelead/agente-comunicacao<div class="link-box-sub">CLAUDE.md · README · Exemplos de réguas em .md</div></div>
         <span class="link-box-arrow">→</span>
       </a>
     </div>
