@@ -314,15 +314,55 @@
 
   <hr class="divider"/>
 
+  <!-- RELATÓRIO PDF -->
+  <div class="step">
+    <div class="step-header">
+      <div class="step-num" style="background:#1e1e1e;color:var(--green);font-size:18px;">📊</div>
+      <div>
+        <div class="step-title">Gerar relatório de performance em PDF</div>
+        <div class="step-sub">O agente gera automaticamente ao encerrar uma campanha</div>
+      </div>
+    </div>
+    <div class="step-body">
+      <p>O agente gera um PDF de performance com design profissional sempre que você pedir "relatório", "PDF" ou ao encerrar uma régua completa.</p>
+
+      <div class="features" style="margin-top:12px;">
+        <div class="feat">
+          <div class="feat-icon">📋</div>
+          <div class="feat-title">Resumo executivo</div>
+          <div class="feat-desc">KPIs principais: total enviados, entregues, taxa de entrega, ligações atendidas e taxa de atendimento.</div>
+        </div>
+        <div class="feat">
+          <div class="feat-icon">📅</div>
+          <div class="feat-title">Performance por dia e canal</div>
+          <div class="feat-desc">Tabela diária com SMS, SMS Flash e Voz separados — enviados, entregues, falhas e taxa.</div>
+        </div>
+        <div class="feat">
+          <div class="feat-icon">📊</div>
+          <div class="feat-title">Detalhe por canal</div>
+          <div class="feat-desc">Consolidado total de SMS, Flash e Voz com todas as métricas de entrega.</div>
+        </div>
+        <div class="feat">
+          <div class="feat-icon">💡</div>
+          <div class="feat-title">Observações automáticas</div>
+          <div class="feat-desc">Análise da performance e recomendações para a próxima campanha — geradas pelo agente.</div>
+        </div>
+      </div>
+
+      <p style="margin-top:16px;">Para gerar, diga ao agente: <em>"Gera o relatório da campanha"</em> — ele preenche os dados e entrega o PDF.</p>
+      <div class="note" style="margin-top:10px;">ℹ️ Requer <code>pip install reportlab</code> na máquina onde o agente está instalado.</div>
+    </div>
+  </div>
+
   <div class="step">
     <div class="step-header">
       <div class="step-num" style="background:#1e1e1e;color:#fff;font-size:20px;">📦</div>
-      <div><div class="step-title">Repositório do agente</div><div class="step-sub">Código aberto — CLAUDE.md, README e exemplos</div></div>
+      <div><div class="step-title">Repositório do agente</div><div class="step-sub">Código aberto — CLAUDE.md, gerar_relatorio.py, README e exemplos</div></div>
     </div>
     <div class="step-body">
       <a class="link-box" href="https://github.com/liguelead/agente-comunicacao" target="_blank">
         <span class="link-box-icon">🐙</span>
-        <div class="link-box-text">github.com/liguelead/agente-comunicacao<div class="link-box-sub">CLAUDE.md · README · Exemplos de réguas em .md</div></div>
+        <div class="link-box-text">github.com/liguelead/agente-comunicacao<div class="link-box-sub">CLAUDE.md · gerar_relatorio.py · Exemplos de réguas em .md</div></div>
         <span class="link-box-arrow">→</span>
       </a>
     </div>
