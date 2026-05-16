@@ -792,45 +792,83 @@ nav{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);display:flex;
 <!-- SLIDE 10: AGENTE DE COMUNICAÇÃO -->
 <div class="slide" id="s13">
   <div style="width:100%">
-    <div style="margin-bottom:22px">
-      <div style="display:inline-block;background:#1bccae22;color:#1bccae;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:12px">Novo</div>
-      <div style="font-size:34px;font-weight:800;color:#fff;letter-spacing:-0.5px;line-height:1.1">Agente de comunicação da LigueLead</div>
-      <div style="width:48px;height:3px;background:#1bccae;border-radius:2px;margin-top:12px"></div>
+    <div style="margin-bottom:18px">
+      <div style="display:inline-block;background:#1bccae22;color:#1bccae;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:10px">Novo</div>
+      <div style="font-size:32px;font-weight:800;color:#fff;letter-spacing:-0.5px;line-height:1.1">Agente de comunicação da LigueLead</div>
+      <div style="font-size:14px;color:#aaa;margin-top:8px">Claude + MCP da LigueLead — você descreve, o agente valida e executa.</div>
     </div>
 
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:16px">
-      <!-- O que é -->
-      <div style="background:#0f2d28;border-radius:14px;padding:22px 24px">
-        <div style="font-size:13px;font-weight:700;color:#1bccae;text-transform:uppercase;letter-spacing:1px;margin-bottom:14px">O que é</div>
-        <div style="font-size:15px;color:#fff;font-weight:600;margin-bottom:8px">Claude + MCP da LigueLead</div>
-        <div style="font-size:13px;color:#bbb;line-height:1.6">Um agente de IA com acesso direto à plataforma. Você descreve a estratégia — o agente valida e executa os envios.</div>
-      </div>
-      <!-- O que faz -->
-      <div style="background:#111;border:1px solid #222;border-radius:14px;padding:22px 24px">
-        <div style="font-size:13px;font-weight:700;color:#1bccae;text-transform:uppercase;letter-spacing:1px;margin-bottom:14px">O que faz</div>
-        <div style="display:flex;flex-direction:column;gap:8px">
-          <div style="display:flex;gap:10px;align-items:flex-start"><span style="color:#1bccae;font-size:14px;flex-shrink:0">✓</span><span style="font-size:13px;color:#ddd">Executa SMS, SMS Flash e Voz</span></div>
-          <div style="display:flex;gap:10px;align-items:flex-start"><span style="color:#1bccae;font-size:14px;flex-shrink:0">✓</span><span style="font-size:13px;color:#ddd">Valida estratégias e sugere melhorias</span></div>
-          <div style="display:flex;gap:10px;align-items:flex-start"><span style="color:#1bccae;font-size:14px;flex-shrink:0">✓</span><span style="font-size:13px;color:#ddd">Entrega relatório de envio por canal</span></div>
-          <div style="display:flex;gap:10px;align-items:flex-start"><span style="color:#1bccae;font-size:14px;flex-shrink:0">✓</span><span style="font-size:13px;color:#ddd">Monta fluxo visual no n8n ou Make</span></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+
+      <!-- Validação de estratégia -->
+      <div style="background:#111;border:1px solid #222;border-radius:14px;overflow:hidden">
+        <div style="background:#0f2d28;padding:12px 16px;border-bottom:1px solid #1bccae22">
+          <div style="font-size:11px;font-weight:700;color:#1bccae;text-transform:uppercase;letter-spacing:1px">Validação de estratégia</div>
+        </div>
+        <div style="padding:14px 16px">
+          <div style="background:#1a1a1a;border-radius:8px;padding:10px 12px;margin-bottom:8px">
+            <div style="font-size:10px;color:#aaa;margin-bottom:4px">Você envia</div>
+            <div style="font-size:12px;color:#ddd;font-style:italic">"Valida essa régua: D+0 SMS, D+3 Voz, D+7 SMS Flash"</div>
+          </div>
+          <div style="background:#0f2d28;border-left:3px solid #1bccae;border-radius:0 8px 8px 0;padding:10px 12px">
+            <div style="font-size:10px;color:#1bccae;margin-bottom:4px">Agente responde</div>
+            <div style="font-size:12px;color:#ccc;line-height:1.5">"D+3 com Voz antes do Flash pode reduzir conversão. Sugiro inverter: SMS Flash em D+3 para urgência, Voz em D+5 para quem não respondeu."</div>
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- Como instalar -->
-    <div style="background:#0a0a0a;border:1px solid #1bccae33;border-radius:14px;padding:18px 24px;display:flex;align-items:center;gap:24px">
-      <div style="flex:1">
-        <div style="font-size:13px;font-weight:700;color:#1bccae;margin-bottom:6px">Como instalar</div>
-        <div style="font-size:13px;color:#aaa;line-height:1.7">
-          1. Abra o Claude Code &nbsp;·&nbsp; 2. Rode o comando abaixo &nbsp;·&nbsp; 3. Cole seu token LigueLead &nbsp;·&nbsp; 4. Pronto
+      <!-- Execução de envios -->
+      <div style="background:#111;border:1px solid #222;border-radius:14px;overflow:hidden">
+        <div style="background:#0f2d28;padding:12px 16px;border-bottom:1px solid #1bccae22">
+          <div style="font-size:11px;font-weight:700;color:#1bccae;text-transform:uppercase;letter-spacing:1px">Execução de envios</div>
         </div>
-        <div style="background:#060606;border:1px solid #1e1e1e;border-radius:8px;padding:10px 14px;font-family:monospace;font-size:12px;color:#1bccae;margin-top:10px;line-height:1.5">claude mcp add liguelead -e LIGUELEAD_API_TOKEN=SEU_TOKEN -- npx -y @liguelead/mcp-server</div>
+        <div style="padding:14px 16px">
+          <div style="background:#1a1a1a;border-radius:8px;padding:10px 12px;margin-bottom:8px">
+            <div style="font-size:10px;color:#aaa;margin-bottom:4px">Você envia</div>
+            <div style="font-size:12px;color:#ddd;font-style:italic">"Envia SMS Flash para esses 320 leads com a mensagem de urgência"</div>
+          </div>
+          <div style="background:#0f2d28;border-left:3px solid #1bccae;border-radius:0 8px 8px 0;padding:10px 12px">
+            <div style="font-size:10px;color:#1bccae;margin-bottom:4px">Agente responde</div>
+            <div style="font-size:12px;color:#ccc;line-height:1.5">"✓ 308 entregues · 7 falhas · 5 números inválidos. Taxa de entrega: 96,2%. Registrado em log."</div>
+          </div>
+        </div>
       </div>
-      <div style="width:90px;height:90px;background:#fff;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0">
-        <div style="font-size:9px;color:#333;text-align:center;padding:6px;line-height:1.4">QR Code<br>Guia de<br>Instalação</div>
-      </div>
-    </div>
 
+      <!-- Relatório de performance -->
+      <div style="background:#111;border:1px solid #222;border-radius:14px;overflow:hidden">
+        <div style="background:#0f2d28;padding:12px 16px;border-bottom:1px solid #1bccae22">
+          <div style="font-size:11px;font-weight:700;color:#1bccae;text-transform:uppercase;letter-spacing:1px">Relatório de performance</div>
+        </div>
+        <div style="padding:14px 16px">
+          <div style="background:#1a1a1a;border-radius:8px;padding:10px 12px;margin-bottom:8px">
+            <div style="font-size:10px;color:#aaa;margin-bottom:4px">Você envia</div>
+            <div style="font-size:12px;color:#ddd;font-style:italic">"Me traz o relatório da campanha de recuperação"</div>
+          </div>
+          <div style="background:#0f2d28;border-left:3px solid #1bccae;border-radius:0 8px 8px 0;padding:10px 12px">
+            <div style="font-size:10px;color:#1bccae;margin-bottom:4px">Agente responde</div>
+            <div style="font-size:12px;color:#ccc;line-height:1.5">"SMS: 94% entrega · Flash: 89% entrega · Voz: 78% atendimento. 43 leads reconvertidos. Melhor horário: 18h-20h."</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sugestão de otimização -->
+      <div style="background:#111;border:1px solid #222;border-radius:14px;overflow:hidden">
+        <div style="background:#0f2d28;padding:12px 16px;border-bottom:1px solid #1bccae22">
+          <div style="font-size:11px;font-weight:700;color:#1bccae;text-transform:uppercase;letter-spacing:1px">Sugestão de otimização</div>
+        </div>
+        <div style="padding:14px 16px">
+          <div style="background:#1a1a1a;border-radius:8px;padding:10px 12px;margin-bottom:8px">
+            <div style="font-size:10px;color:#aaa;margin-bottom:4px">Você envia</div>
+            <div style="font-size:12px;color:#ddd;font-style:italic">"A Voz não está convertendo bem. O que você recomenda?"</div>
+          </div>
+          <div style="background:#0f2d28;border-left:3px solid #1bccae;border-radius:0 8px 8px 0;padding:10px 12px">
+            <div style="font-size:10px;color:#1bccae;margin-bottom:4px">Agente responde</div>
+            <div style="font-size:12px;color:#ccc;line-height:1.5">"Taxa de atendimento de 42% está abaixo da média. Recomendo testar horário entre 18h-20h e reduzir o áudio para menos de 30 segundos."</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
 </div>
 
@@ -868,8 +906,144 @@ nav{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);display:flex;
   </div>
 </div>
 
-<!-- SLIDE 10: 3 PRINCÍPIOS -->
+<!-- SLIDE 14: AGENTE EM AÇÃO — PRINT REAL -->
 <div class="slide" id="s14">
+  <div style="width:100%">
+    <div style="margin-bottom:14px">
+      <div style="display:inline-block;background:#1bccae22;color:#1bccae;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;border-radius:20px;margin-bottom:6px">Execução Real</div>
+      <div style="font-size:28px;font-weight:800;color:#fff;letter-spacing:-0.5px;line-height:1.1">O agente em ação</div>
+      <div style="font-size:13px;color:#aaa;margin-top:4px">Output real — Fluxo Perpétuo · 3 leads · 5 etapas · 16/05/2026</div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1.1fr 0.9fr;gap:14px;align-items:start">
+
+      <!-- COLUNA ESQUERDA: Análise + Tabela -->
+      <div style="display:flex;flex-direction:column;gap:12px">
+
+        <!-- Análise de estratégia -->
+        <div style="background:#0a1a17;border:1px solid #1bccae33;border-radius:12px;overflow:hidden">
+          <div style="padding:10px 14px;border-bottom:1px solid #1bccae22;display:flex;align-items:center;gap:8px">
+            <div style="width:8px;height:8px;border-radius:50%;background:#1bccae"></div>
+            <div style="font-size:11px;font-weight:700;color:#1bccae;text-transform:uppercase;letter-spacing:1px">Análise da estratégia</div>
+          </div>
+          <div style="padding:12px 14px;font-family:monospace;font-size:11px;color:#ccc;line-height:1.65">
+            <div style="color:#1bccae;margin-bottom:3px">✓ Cadência bem calibrada (7 dias)</div>
+            <div style="color:#aaa;margin-bottom:8px;padding-left:14px">D+0→D+7 respeita o ciclo de atenção sem esgotar engajamento.</div>
+            <div style="color:#1bccae;margin-bottom:3px">✓ Mix de canais complementares</div>
+            <div style="color:#aaa;margin-bottom:8px;padding-left:14px">Flash interrompe tela · Voz cria conexão emocional · SMS mantém top-of-mind.</div>
+            <div style="color:#1bccae;margin-bottom:3px">✓ Escalada de urgência estruturada</div>
+            <div style="color:#aaa;margin-bottom:8px;padding-left:14px">Valor antes da oferta — prova antes do pitch. Progressão correta.</div>
+            <div style="color:#f59e0b;margin-bottom:3px">⚠ Sem ramificação comportamental</div>
+            <div style="color:#aaa;padding-left:14px">Lead que converte no D+2 continua no fluxo. Adicione saída por conversão.</div>
+          </div>
+        </div>
+
+        <!-- Tabela de execução -->
+        <div style="background:#0a1a17;border:1px solid #1bccae33;border-radius:12px;overflow:hidden">
+          <div style="padding:10px 14px;border-bottom:1px solid #1bccae22;display:flex;align-items:center;gap:8px">
+            <div style="width:8px;height:8px;border-radius:50%;background:#1bccae"></div>
+            <div style="font-size:11px;font-weight:700;color:#1bccae;text-transform:uppercase;letter-spacing:1px">Resumo de execução</div>
+          </div>
+          <div style="padding:10px 14px">
+            <table style="width:100%;border-collapse:collapse;font-family:monospace;font-size:10.5px">
+              <thead>
+                <tr>
+                  <th style="text-align:left;color:#777;padding:4px 8px 6px 0;border-bottom:1px solid #222;font-weight:600">Lead</th>
+                  <th style="text-align:center;color:#777;padding:4px 6px 6px;border-bottom:1px solid #222;font-weight:600">D+0 SMS</th>
+                  <th style="text-align:center;color:#777;padding:4px 6px 6px;border-bottom:1px solid #222;font-weight:600">D+2 SMS</th>
+                  <th style="text-align:center;color:#777;padding:4px 6px 6px;border-bottom:1px solid #222;font-weight:600">D+4 Voz</th>
+                  <th style="text-align:center;color:#777;padding:4px 6px 6px;border-bottom:1px solid #222;font-weight:600">D+6 Flash</th>
+                  <th style="text-align:center;color:#777;padding:4px 6px 6px;border-bottom:1px solid #222;font-weight:600">D+7 Voz</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="color:#ddd;padding:6px 8px 6px 0">João Silva</td>
+                  <td style="text-align:center;padding:6px">✅</td>
+                  <td style="text-align:center;padding:6px">✅</td>
+                  <td style="text-align:center;padding:6px">✅</td>
+                  <td style="text-align:center;padding:6px">✅</td>
+                  <td style="text-align:center;padding:6px">✅</td>
+                </tr>
+                <tr>
+                  <td style="color:#ddd;padding:6px 8px 6px 0">Maria Souza</td>
+                  <td style="text-align:center;padding:6px">✅</td>
+                  <td style="text-align:center;padding:6px">✅</td>
+                  <td style="text-align:center;padding:6px">📵</td>
+                  <td style="text-align:center;padding:6px">✅</td>
+                  <td style="text-align:center;padding:6px">📵</td>
+                </tr>
+                <tr>
+                  <td style="color:#ddd;padding:6px 8px 6px 0">Carlos Lima</td>
+                  <td style="text-align:center;padding:6px">✅</td>
+                  <td style="text-align:center;padding:6px;color:#ef4444">❌</td>
+                  <td style="text-align:center;padding:6px">✅</td>
+                  <td style="text-align:center;padding:6px">✅</td>
+                  <td style="text-align:center;padding:6px;color:#ef4444">❌</td>
+                </tr>
+              </tbody>
+            </table>
+            <div style="margin-top:8px;font-size:9.5px;color:#555;font-family:monospace">Carlos Lima D+2: fora de área · 3 retentativas · expirou após 30 min</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- COLUNA DIREITA: Relatórios -->
+      <div style="display:flex;flex-direction:column;gap:10px">
+
+        <!-- Relatório SMS -->
+        <div style="background:#0d0d0d;border:1px solid #222;border-radius:12px;overflow:hidden">
+          <div style="padding:8px 14px;background:#111;border-bottom:1px solid #222">
+            <div style="font-size:10px;font-weight:700;color:#777;text-transform:uppercase;letter-spacing:1px">Relatório gerado</div>
+          </div>
+          <pre style="margin:0;padding:12px 14px;font-family:monospace;font-size:10.5px;color:#ccc;line-height:1.7;overflow:hidden;white-space:pre-wrap">📊 RELATÓRIO DE ENVIO — SMS
+──────────────────────────────
+Estratégia : Fluxo Perpétuo — Mentoria X
+Data/Hora  : 16/05/2026 09:47:23 BRT
+Total       : 9 números
+✅ Entregues    : 8 (88,9%)
+❌ Falhas        : 1 (11,1%)
+🚫 Inválidos     : 0 (0,0%)
+──────────────────────────────
+D+0 Boas-vindas  : 3/3 ✓
+D+2 Conteúdo     : 2/3 · 1 falha — Carlos Lima
+D+6 Oferta Flash : 3/3 ✓
+──────────────────────────────</pre>
+        </div>
+
+        <!-- Relatório Voz D+4 -->
+        <div style="background:#0d0d0d;border:1px solid #222;border-radius:12px;overflow:hidden">
+          <pre style="margin:0;padding:12px 14px;font-family:monospace;font-size:10.5px;color:#ccc;line-height:1.7;overflow:hidden;white-space:pre-wrap">📞 LIGAÇÕES — PITCH D+4
+──────────────────────────────
+Audio ID   : perpetuo_pitch_v1
+Total       : 3 ligações
+✅ Atendidas     : 2 (66,7%)
+📵 Não atendidas : 1 (33,3%)
+──────────────────────────────
+João Silva   ✅ 1m 52s (áudio completo)
+Maria Souza  📵 4 toques sem resposta
+Carlos Lima  ✅ 1m 47s (áudio completo)
+──────────────────────────────</pre>
+        </div>
+
+        <!-- Visão consolidada -->
+        <div style="background:#0f2d28;border:1px solid #1bccae33;border-radius:10px;padding:12px 14px">
+          <div style="font-size:10px;color:#1bccae;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">Visão consolidada da campanha</div>
+          <div style="font-family:monospace;font-size:11px;color:#ccc;line-height:1.8">
+            <div>SMS: <span style="color:#1bccae">8/9 entregues (88,9%)</span></div>
+            <div>Voz: <span style="color:#1bccae">3/6 atendidas (50%)</span></div>
+            <div style="margin-top:6px;font-size:10.5px;color:#aaa">João Silva — 5/5 etapas concluídas<br><span style="color:#f59e0b">→ perfil prioritário para follow-up manual</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 10: 3 PRINCÍPIOS -->
+<div class="slide" id="s15">
   <div style="max-width:700px;width:100%">
     <div class="tag">Fechamento</div>
     <div style="font-size:30px;font-weight:800;margin:12px 0 6px;letter-spacing:-0.5px">3 princípios para levar hoje</div>
@@ -894,7 +1068,7 @@ nav{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);display:flex;
 </div>
 
 <!-- SLIDE 11: CTA -->
-<div class="slide" id="s15">
+<div class="slide" id="s16">
   <div style="max-width:760px;width:100%;text-align:center">
     <div style="display:inline-flex;align-items:center;gap:12px;background:#0a1a17;border:1px solid #1BCCAE33;border-radius:14px;padding:12px 20px;margin-bottom:28px">
       <div style="width:36px;height:36px;background:var(--g);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:18px">⚡</div>
@@ -939,7 +1113,7 @@ nav{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);display:flex;
 </nav>
 
 <script>
-const N = 15;
+const N = 16;
 let cur = 0;
 
 const dots = document.getElementById('dots');
