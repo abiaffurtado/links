@@ -25,6 +25,19 @@
     .channels { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 20px; }
     .chip { background: #1BCCAE15; border: 1px solid #1BCCAE33; color: var(--green); border-radius: 20px; padding: 6px 14px; font-size: 13px; font-weight: 500; }
 
+    /* Credential box */
+    .cred-box { background: #050e0c; border: 1.5px solid var(--green); border-radius: 16px; padding: 24px; margin-bottom: 40px; }
+    .cred-box h3 { font-size: 15px; font-weight: 700; color: var(--green); margin-bottom: 6px; }
+    .cred-box p { font-size: 13px; color: var(--dim); margin-bottom: 18px; }
+    .cred-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    @media (max-width: 500px) { .cred-fields { grid-template-columns: 1fr; } }
+    .field label { display: block; font-size: 11px; font-weight: 600; color: var(--green); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+    .field input { width: 100%; background: #0a0a0a; border: 1px solid #2a2a2a; border-radius: 8px; padding: 10px 12px; color: var(--text); font-size: 13px; font-family: 'SF Mono', Menlo, monospace; outline: none; transition: border-color 0.15s; }
+    .field input:focus { border-color: var(--green); }
+    .field input::placeholder { color: #444; }
+    .cred-link { display: inline-flex; align-items: center; gap: 6px; color: var(--green); font-size: 12px; text-decoration: none; margin-top: 14px; opacity: 0.8; }
+    .cred-link:hover { opacity: 1; }
+
     .step { margin-bottom: 32px; }
     .step-header { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
     .step-num { width: 36px; height: 36px; background: var(--green); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 800; color: #000; flex-shrink: 0; }
@@ -35,13 +48,14 @@
     .step-body p { font-size: 14px; color: var(--dim); line-height: 1.7; margin-bottom: 14px; }
     .step-body p:last-child { margin-bottom: 0; }
 
-    .code-block { background: #060606; border: 1px solid #1e1e1e; border-radius: 10px; padding: 14px 16px; font-family: 'SF Mono', Menlo, monospace; font-size: 13px; color: var(--green); line-height: 1.6; position: relative; overflow-x: auto; white-space: pre-wrap; word-break: break-all; margin: 12px 0; }
-    .copy-btn { position: absolute; top: 10px; right: 10px; background: #1BCCAE22; border: 1px solid #1BCCAE44; color: var(--green); border-radius: 6px; padding: 4px 10px; font-size: 11px; cursor: pointer; font-family: inherit; transition: background 0.15s; }
+    .code-block { background: #060606; border: 1px solid #1e1e1e; border-radius: 10px; padding: 14px 16px; padding-right: 80px; font-family: 'SF Mono', Menlo, monospace; font-size: 13px; color: var(--green); line-height: 1.6; position: relative; overflow-x: auto; white-space: pre-wrap; word-break: break-all; margin: 12px 0; }
+    .code-block .placeholder { color: #555; font-style: italic; }
+    .code-block .filled { color: #22d3b8; font-weight: 600; }
+    .copy-btn { position: absolute; top: 10px; right: 10px; background: #1BCCAE22; border: 1px solid #1BCCAE44; color: var(--green); border-radius: 6px; padding: 4px 10px; font-size: 11px; cursor: pointer; font-family: inherit; transition: background 0.15s; white-space: nowrap; }
     .copy-btn:hover { background: #1BCCAE33; }
     .copy-btn.copied { color: #22c55e; border-color: #22c55e44; }
 
-    .note { background: #1BCCAE0A; border: 1px solid #1BCCAE22; border-radius: 10px; padding: 12px 16px; font-size: 13px; color: var(--green); display: flex; gap: 10px; margin-top: 12px; }
-    .note-icon { flex-shrink: 0; }
+    .note { background: #1BCCAE0A; border: 1px solid #1BCCAE22; border-radius: 10px; padding: 12px 16px; font-size: 13px; color: var(--green); display: flex; gap: 10px; margin-top: 12px; line-height: 1.5; }
 
     .link-box { display: flex; align-items: center; gap: 12px; background: var(--surface2); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; text-decoration: none; color: var(--text); transition: border-color 0.15s; margin-top: 12px; }
     .link-box:hover { border-color: var(--green); }
@@ -51,7 +65,6 @@
     .link-box-arrow { color: var(--green); }
 
     .divider { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
-
     footer { text-align: center; font-size: 12px; color: var(--dim); margin-top: 16px; }
     footer a { color: var(--green); text-decoration: none; }
   </style>
@@ -77,6 +90,23 @@
     </div>
   </div>
 
+  <!-- CREDENCIAIS -->
+  <div class="cred-box">
+    <h3>⚡ Cole suas credenciais aqui — o comando é gerado automaticamente</h3>
+    <p>Os comandos abaixo são atualizados em tempo real com seus dados.</p>
+    <div class="cred-fields">
+      <div class="field">
+        <label>API Token</label>
+        <input type="text" id="apiToken" placeholder="0yESIRY..." oninput="updateCommands()" autocomplete="off" spellcheck="false"/>
+      </div>
+      <div class="field">
+        <label>App ID</label>
+        <input type="text" id="appId" placeholder="9886bcd8-..." oninput="updateCommands()" autocomplete="off" spellcheck="false"/>
+      </div>
+    </div>
+    <a class="cred-link" href="https://areadocliente.liguelead.app.br" target="_blank">🔑 Obter credenciais em areadocliente.liguelead.app.br → Integrações → API Token →</a>
+  </div>
+
   <!-- PASSO 1 -->
   <div class="step">
     <div class="step-header">
@@ -87,16 +117,12 @@
       </div>
     </div>
     <div class="step-body">
-      <p>Acesse a área do cliente e crie um App para obter as credenciais:</p>
+      <p>Acesse a área do cliente, crie um App e cole os valores no campo acima:</p>
       <a class="link-box" href="https://areadocliente.liguelead.app.br" target="_blank">
         <span class="link-box-icon">🔑</span>
-        <div class="link-box-text">
-          areadocliente.liguelead.app.br
-          <div class="link-box-sub">Integrações → API Token → Criar App</div>
-        </div>
+        <div class="link-box-text">areadocliente.liguelead.app.br<div class="link-box-sub">Integrações → API Token → Criar App</div></div>
         <span class="link-box-arrow">→</span>
       </a>
-      <p style="margin-top:12px">Copie o <strong style="color:#fff">API Token</strong> e o <strong style="color:#fff">App ID</strong> — você vai precisar no próximo passo.</p>
     </div>
   </div>
 
@@ -110,9 +136,9 @@
       </div>
     </div>
     <div class="step-body">
-      <p>Substitua <strong style="color:#fff">SEU_TOKEN</strong> e <strong style="color:#fff">SEU_APP_ID</strong> pelos valores copiados:</p>
-      <div class="code-block" id="cmd2">claude mcp add -s user liguelead -e LIGUELEAD_API_TOKEN=SEU_TOKEN -e LIGUELEAD_APP_ID=SEU_APP_ID -e TRANSPORT=stdio -- npx -y @liguelead/mcp-server<button class="copy-btn" onclick="copyCode('cmd2', this)">copiar</button></div>
-      <div class="note"><span class="note-icon">ℹ️</span> Deve aparecer: "Added stdio MCP server liguelead". Se já existir, remova primeiro: <code style="color:var(--green)">claude mcp remove liguelead -s user</code></div>
+      <p>Rode este comando no terminal (suas credenciais já estão preenchidas):</p>
+      <div class="code-block" id="cmd2-display">claude mcp add -s user liguelead -e LIGUELEAD_API_TOKEN=<span class="placeholder" id="t1">SEU_TOKEN</span> -e LIGUELEAD_APP_ID=<span class="placeholder" id="a1">SEU_APP_ID</span> -e TRANSPORT=stdio -- npx -y @liguelead/mcp-server<button class="copy-btn" onclick="copyCmd('cmd2', this)">copiar</button></div>
+      <div class="note">ℹ️ Deve aparecer: "Added stdio MCP server liguelead". Se já existir, remova primeiro: <code>claude mcp remove liguelead -s user</code></div>
     </div>
   </div>
 
@@ -127,8 +153,7 @@
     </div>
     <div class="step-body">
       <p>No terminal, rode:</p>
-      <div class="code-block" id="cmd3">mkdir -p agente-liguelead && cd agente-liguelead && curl -fsSL https://raw.githubusercontent.com/liguelead/agente-comunicacao/main/CLAUDE.md -o CLAUDE.md && claude<button class="copy-btn" onclick="copyCode('cmd3', this)">copiar</button></div>
-      <p>O Claude vai abrir dentro da pasta do agente.</p>
+      <div class="code-block">mkdir -p agente-liguelead && cd agente-liguelead && curl -fsSL https://raw.githubusercontent.com/liguelead/agente-comunicacao/main/CLAUDE.md -o CLAUDE.md && claude<button class="copy-btn" onclick="copyStatic('mkdir -p agente-liguelead && cd agente-liguelead && curl -fsSL https://raw.githubusercontent.com/liguelead/agente-comunicacao/main/CLAUDE.md -o CLAUDE.md && claude', this)">copiar</button></div>
     </div>
   </div>
 
@@ -142,13 +167,12 @@
       </div>
     </div>
     <div class="step-body">
-      <p>Na primeira conversa, o agente vai perguntar sobre seu negócio e integrações existentes para personalizar as réguas. Depois é só descrever o problema:</p>
+      <p>Na primeira conversa, o agente coleta contexto do seu negócio e integrações existentes. Depois é só descrever o problema:</p>
       <div class="code-block">"Clientes somem após a primeira sessão. Cria uma régua de retenção."
 
 "Tenho 20% de inadimplência. Quero recuperar sem perder o cliente."
 
 "Agenda visitas mas metade não aparece. Reduz as faltas."</div>
-      <p>O agente cria a régua com canais, delays e mensagens prontas — e pode enviar diretamente via LigueLead.</p>
     </div>
   </div>
 
@@ -156,36 +180,51 @@
 
   <div class="step">
     <div class="step-header">
-      <div class="step-num" style="background:#1e1e1e; color:#fff; font-size:20px;">📦</div>
-      <div>
-        <div class="step-title">Repositório do agente</div>
-        <div class="step-sub">Código aberto — CLAUDE.md, README e mais</div>
-      </div>
+      <div class="step-num" style="background:#1e1e1e;color:#fff;font-size:20px;">📦</div>
+      <div><div class="step-title">Repositório do agente</div><div class="step-sub">Código aberto — CLAUDE.md, README e exemplos</div></div>
     </div>
     <div class="step-body">
       <a class="link-box" href="https://github.com/liguelead/agente-comunicacao" target="_blank">
         <span class="link-box-icon">🐙</span>
-        <div class="link-box-text">
-          github.com/liguelead/agente-comunicacao
-          <div class="link-box-sub">CLAUDE.md · README · Exemplos de réguas</div>
-        </div>
+        <div class="link-box-text">github.com/liguelead/agente-comunicacao<div class="link-box-sub">CLAUDE.md · README · Exemplos de réguas</div></div>
         <span class="link-box-arrow">→</span>
       </a>
     </div>
   </div>
 
-  <footer>
-    Powered by <a href="https://liguelead.com.br">LigueLead</a> + Claude · <a href="https://liguelead.github.io/links/">Outras integrações</a>
-  </footer>
+  <footer>Powered by <a href="https://liguelead.com.br">LigueLead</a> + Claude · <a href="https://liguelead.github.io/links/">Outras integrações</a></footer>
 </main>
 
 <script>
-function copyCode(id, btn) {
-  const el = document.getElementById(id);
-  const text = el.innerText.replace('copiar','').replace('copiado!','').trim();
+function updateCommands() {
+  const token = document.getElementById('apiToken').value.trim() || null;
+  const appId = document.getElementById('appId').value.trim() || null;
+
+  ['t1'].forEach(id => {
+    const el = document.getElementById(id);
+    if (token) { el.textContent = token; el.className = 'filled'; }
+    else { el.textContent = 'SEU_TOKEN'; el.className = 'placeholder'; }
+  });
+  ['a1'].forEach(id => {
+    const el = document.getElementById(id);
+    if (appId) { el.textContent = appId; el.className = 'filled'; }
+    else { el.textContent = 'SEU_APP_ID'; el.className = 'placeholder'; }
+  });
+}
+
+function copyCmd(id, btn) {
+  const token = document.getElementById('apiToken').value.trim() || 'SEU_TOKEN';
+  const appId = document.getElementById('appId').value.trim() || 'SEU_APP_ID';
+  const cmd = `claude mcp add -s user liguelead -e LIGUELEAD_API_TOKEN=${token} -e LIGUELEAD_APP_ID=${appId} -e TRANSPORT=stdio -- npx -y @liguelead/mcp-server`;
+  navigator.clipboard.writeText(cmd).then(() => {
+    btn.textContent = 'copiado!'; btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'copiar'; btn.classList.remove('copied'); }, 2000);
+  });
+}
+
+function copyStatic(text, btn) {
   navigator.clipboard.writeText(text).then(() => {
-    btn.textContent = 'copiado!';
-    btn.classList.add('copied');
+    btn.textContent = 'copiado!'; btn.classList.add('copied');
     setTimeout(() => { btn.textContent = 'copiar'; btn.classList.remove('copied'); }, 2000);
   });
 }
