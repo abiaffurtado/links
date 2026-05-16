@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Agente de Comunicação LigueLead — Guia de Instalação</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green: #1BCCAE; --bg: #000; --surface: #0d0d0d;
+      --surface2: #141414; --border: #1e1e1e; --text: #f0f0f0; --dim: #777;
+    }
+    body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; min-height: 100vh; }
+
+    header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 20px 24px; display: flex; align-items: center; gap: 12px; }
+    .logo { width: 40px; height: 40px; background: var(--green); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+    header h1 { font-size: 18px; font-weight: 700; }
+    header p { font-size: 13px; color: var(--green); margin-top: 2px; }
+
+    main { max-width: 720px; margin: 0 auto; padding: 40px 20px 80px; }
+
+    .intro { text-align: center; margin-bottom: 48px; }
+    .intro h2 { font-size: 28px; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 12px; }
+    .intro p { color: var(--dim); font-size: 15px; line-height: 1.6; }
+    .channels { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 20px; }
+    .chip { background: #1BCCAE15; border: 1px solid #1BCCAE33; color: var(--green); border-radius: 20px; padding: 6px 14px; font-size: 13px; font-weight: 500; }
+
+    .step { margin-bottom: 32px; }
+    .step-header { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
+    .step-num { width: 36px; height: 36px; background: var(--green); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 800; color: #000; flex-shrink: 0; }
+    .step-title { font-size: 18px; font-weight: 700; }
+    .step-sub { font-size: 13px; color: var(--dim); margin-top: 2px; }
+
+    .step-body { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 20px; }
+    .step-body p { font-size: 14px; color: var(--dim); line-height: 1.7; margin-bottom: 14px; }
+    .step-body p:last-child { margin-bottom: 0; }
+
+    .code-block { background: #060606; border: 1px solid #1e1e1e; border-radius: 10px; padding: 14px 16px; font-family: 'SF Mono', Menlo, monospace; font-size: 13px; color: var(--green); line-height: 1.6; position: relative; overflow-x: auto; white-space: pre-wrap; word-break: break-all; margin: 12px 0; }
+    .copy-btn { position: absolute; top: 10px; right: 10px; background: #1BCCAE22; border: 1px solid #1BCCAE44; color: var(--green); border-radius: 6px; padding: 4px 10px; font-size: 11px; cursor: pointer; font-family: inherit; transition: background 0.15s; }
+    .copy-btn:hover { background: #1BCCAE33; }
+    .copy-btn.copied { color: #22c55e; border-color: #22c55e44; }
+
+    .note { background: #1BCCAE0A; border: 1px solid #1BCCAE22; border-radius: 10px; padding: 12px 16px; font-size: 13px; color: var(--green); display: flex; gap: 10px; margin-top: 12px; }
+    .note-icon { flex-shrink: 0; }
+
+    .link-box { display: flex; align-items: center; gap: 12px; background: var(--surface2); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; text-decoration: none; color: var(--text); transition: border-color 0.15s; margin-top: 12px; }
+    .link-box:hover { border-color: var(--green); }
+    .link-box-icon { font-size: 20px; }
+    .link-box-text { flex: 1; font-size: 14px; font-weight: 600; }
+    .link-box-sub { font-size: 12px; color: var(--dim); margin-top: 2px; }
+    .link-box-arrow { color: var(--green); }
+
+    .divider { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+
+    footer { text-align: center; font-size: 12px; color: var(--dim); margin-top: 16px; }
+    footer a { color: var(--green); text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">⚡</div>
+  <div>
+    <h1>Agente de Comunicação LigueLead</h1>
+    <p>Guia de instalação — Claude + SMS + Voz + SMS Flash</p>
+  </div>
+</header>
+
+<main>
+  <div class="intro">
+    <h2>Configure em 4 passos</h2>
+    <p>Transforma o Claude em um agente especialista em comunicação automatizada.<br>Cria réguas personalizadas e envia mensagens diretamente via LigueLead.</p>
+    <div class="channels">
+      <span class="chip">💬 SMS</span>
+      <span class="chip">📞 Voz automatizada</span>
+      <span class="chip">⚡ SMS Flash</span>
+    </div>
+  </div>
+
+  <!-- PASSO 1 -->
+  <div class="step">
+    <div class="step-header">
+      <div class="step-num">1</div>
+      <div>
+        <div class="step-title">Pegue suas credenciais</div>
+        <div class="step-sub">API Token + App ID da LigueLead</div>
+      </div>
+    </div>
+    <div class="step-body">
+      <p>Acesse a área do cliente e crie um App para obter as credenciais:</p>
+      <a class="link-box" href="https://areadocliente.liguelead.app.br" target="_blank">
+        <span class="link-box-icon">🔑</span>
+        <div class="link-box-text">
+          areadocliente.liguelead.app.br
+          <div class="link-box-sub">Integrações → API Token → Criar App</div>
+        </div>
+        <span class="link-box-arrow">→</span>
+      </a>
+      <p style="margin-top:12px">Copie o <strong style="color:#fff">API Token</strong> e o <strong style="color:#fff">App ID</strong> — você vai precisar no próximo passo.</p>
+    </div>
+  </div>
+
+  <!-- PASSO 2 -->
+  <div class="step">
+    <div class="step-header">
+      <div class="step-num">2</div>
+      <div>
+        <div class="step-title">Instale o MCP da LigueLead</div>
+        <div class="step-sub">Rode no terminal — fora do Claude</div>
+      </div>
+    </div>
+    <div class="step-body">
+      <p>Substitua <strong style="color:#fff">SEU_TOKEN</strong> e <strong style="color:#fff">SEU_APP_ID</strong> pelos valores copiados:</p>
+      <div class="code-block" id="cmd2">claude mcp add -s user liguelead -e LIGUELEAD_API_TOKEN=SEU_TOKEN -e LIGUELEAD_APP_ID=SEU_APP_ID -e TRANSPORT=stdio -- npx -y @liguelead/mcp-server<button class="copy-btn" onclick="copyCode('cmd2', this)">copiar</button></div>
+      <div class="note"><span class="note-icon">ℹ️</span> Deve aparecer: "Added stdio MCP server liguelead". Se já existir, remova primeiro: <code style="color:var(--green)">claude mcp remove liguelead -s user</code></div>
+    </div>
+  </div>
+
+  <!-- PASSO 3 -->
+  <div class="step">
+    <div class="step-header">
+      <div class="step-num">3</div>
+      <div>
+        <div class="step-title">Crie a pasta e baixe o agente</div>
+        <div class="step-sub">Um único comando faz tudo</div>
+      </div>
+    </div>
+    <div class="step-body">
+      <p>No terminal, rode:</p>
+      <div class="code-block" id="cmd3">mkdir -p agente-liguelead && cd agente-liguelead && curl -fsSL https://raw.githubusercontent.com/liguelead/agente-comunicacao/main/CLAUDE.md -o CLAUDE.md && claude<button class="copy-btn" onclick="copyCode('cmd3', this)">copiar</button></div>
+      <p>O Claude vai abrir dentro da pasta do agente.</p>
+    </div>
+  </div>
+
+  <!-- PASSO 4 -->
+  <div class="step">
+    <div class="step-header">
+      <div class="step-num">4</div>
+      <div>
+        <div class="step-title">Descreva sua dor</div>
+        <div class="step-sub">O agente cria a régua e pode enviar na hora</div>
+      </div>
+    </div>
+    <div class="step-body">
+      <p>Na primeira conversa, o agente vai perguntar sobre seu negócio e integrações existentes para personalizar as réguas. Depois é só descrever o problema:</p>
+      <div class="code-block">"Clientes somem após a primeira sessão. Cria uma régua de retenção."
+
+"Tenho 20% de inadimplência. Quero recuperar sem perder o cliente."
+
+"Agenda visitas mas metade não aparece. Reduz as faltas."</div>
+      <p>O agente cria a régua com canais, delays e mensagens prontas — e pode enviar diretamente via LigueLead.</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <div class="step">
+    <div class="step-header">
+      <div class="step-num" style="background:#1e1e1e; color:#fff; font-size:20px;">📦</div>
+      <div>
+        <div class="step-title">Repositório do agente</div>
+        <div class="step-sub">Código aberto — CLAUDE.md, README e mais</div>
+      </div>
+    </div>
+    <div class="step-body">
+      <a class="link-box" href="https://github.com/liguelead/agente-comunicacao" target="_blank">
+        <span class="link-box-icon">🐙</span>
+        <div class="link-box-text">
+          github.com/liguelead/agente-comunicacao
+          <div class="link-box-sub">CLAUDE.md · README · Exemplos de réguas</div>
+        </div>
+        <span class="link-box-arrow">→</span>
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    Powered by <a href="https://liguelead.com.br">LigueLead</a> + Claude · <a href="https://liguelead.github.io/links/">Outras integrações</a>
+  </footer>
+</main>
+
+<script>
+function copyCode(id, btn) {
+  const el = document.getElementById(id);
+  const text = el.innerText.replace('copiar','').replace('copiado!','').trim();
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = 'copiado!';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'copiar'; btn.classList.remove('copied'); }, 2000);
+  });
+}
+</script>
+</body>
+</html>
