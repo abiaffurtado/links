@@ -279,12 +279,24 @@
       <div class="step-num" style="background:#1e1e1e;color:var(--green);font-size:18px;">🔔</div>
       <div>
         <div class="step-title">Webhook de retorno de status</div>
-        <div class="step-sub">Receba notificação quando SMS for entregue ou ligação atendida</div>
+        <div class="step-sub">2 etapas: agente monta o receptor → você cola a URL na LigueLead</div>
       </div>
     </div>
     <div class="step-body">
-      <p>Configure uma URL para receber o status de cada envio em tempo real:</p>
+      <p>O webhook funciona em duas etapas simples:</p>
       <div class="features" style="margin-top:0;">
+        <div class="feat">
+          <div class="feat-icon">⚙️</div>
+          <div class="feat-title">1. Agente monta o receptor</div>
+          <div class="feat-desc">Cria o nó webhook no n8n ou Make e te entrega a URL do endpoint.</div>
+        </div>
+        <div class="feat">
+          <div class="feat-icon">🔑</div>
+          <div class="feat-title">2. Você cola na LigueLead</div>
+          <div class="feat-desc">Área do cliente → Integrações → campo Webhook. Cola a URL e salva.</div>
+        </div>
+      </div>
+      <div class="features" style="margin-top:14px;">
         <div class="feat">
           <div class="feat-icon">✅</div>
           <div class="feat-title">SMS entregue / falhou</div>
@@ -296,7 +308,7 @@
           <div class="feat-desc">Sabe em tempo real quem atendeu e quem ignorou a chamada.</div>
         </div>
       </div>
-      <div class="note" style="margin-top:16px;">ℹ️ Diga: <em>"Configura webhook de status para https://meu-site.com/callback"</em> — o agente registra e, se você tiver fluxo no n8n/Make, já adiciona o nó receptor.</div>
+      <div class="note" style="margin-top:16px;">ℹ️ Diga: <em>"Monta o receptor de webhook no n8n"</em> — o agente cria o nó e te dá a URL para colar na LigueLead.</div>
     </div>
   </div>
 
