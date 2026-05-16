@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LigueLead · Links</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      background: #0f2318;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px 60px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .logo-icon {
+      width: 48px;
+      height: 48px;
+      background: #16a34a;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+    }
+
+    .logo-name {
+      font-size: 26px;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: -0.5px;
+    }
+
+    .subtitle {
+      color: #86efac;
+      font-size: 14px;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .links {
+      width: 100%;
+      max-width: 480px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .link-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: #1a3d26;
+      border: 1px solid #22543d;
+      border-radius: 16px;
+      padding: 18px 20px;
+      text-decoration: none;
+      color: #ffffff;
+      transition: transform 0.15s, background 0.15s, border-color 0.15s;
+    }
+
+    .link-card:hover {
+      transform: translateY(-2px);
+      background: #1e4d2e;
+      border-color: #16a34a;
+    }
+
+    .link-card:active {
+      transform: translateY(0);
+    }
+
+    .link-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    .link-icon.green  { background: #16a34a22; }
+    .link-icon.orange { background: #f9731622; }
+    .link-icon.purple { background: #a855f722; }
+    .link-icon.blue   { background: #3b82f622; }
+
+    .link-text { flex: 1; }
+    .link-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 3px;
+    }
+    .link-desc {
+      font-size: 12px;
+      color: #86efac;
+    }
+
+    .arrow {
+      color: #16a34a;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .footer {
+      margin-top: 48px;
+      color: #4ade80;
+      font-size: 12px;
+      opacity: 0.6;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="logo">
+    <div class="logo-icon">⚡</div>
+    <span class="logo-name">LigueLead</span>
+  </div>
+  <p class="subtitle">Comece agora — escolha como quer integrar</p>
+
+  <div class="links">
+
+    <a class="link-card" href="https://areadocliente.liguelead.app.br/cadastro?plan=api" target="_blank">
+      <div class="link-icon green">🚀</div>
+      <div class="link-text">
+        <div class="link-title">Criar conta na LigueLead</div>
+        <div class="link-desc">Cadastre-se e comece a usar agora</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+
+    <a class="link-card" href="https://app.manychat.com/apps/7bbad21317a3e304f558ba9f366d081e093742b1/install" target="_blank">
+      <div class="link-icon orange">💬</div>
+      <div class="link-text">
+        <div class="link-title">Instalar no ManyChat</div>
+        <div class="link-desc">Conecte LigueLead ao seu ManyChat</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+
+    <a class="link-card" href="https://www.make.com/en/hq/app-invitation/884a30e2c7d653d556fe1cef95f256c9" target="_blank">
+      <div class="link-icon purple">⚙️</div>
+      <div class="link-text">
+        <div class="link-title">Instalar no Make</div>
+        <div class="link-desc">App LigueLead para automações no Make</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+
+    <a class="link-card" href="https://github.com/liguelead/mcp" target="_blank">
+      <div class="link-icon blue">🤖</div>
+      <div class="link-text">
+        <div class="link-title">Instalar MCP + Skill da LigueLead</div>
+        <div class="link-desc">Conecte agentes de IA ao canal de voz e SMS</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+
+  </div>
+
+  <p class="footer">liguelead.com.br</p>
+
+</body>
+</html>
